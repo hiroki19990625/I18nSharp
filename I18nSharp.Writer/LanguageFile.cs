@@ -7,8 +7,8 @@ namespace I18nSharp.Writer
 {
     public class LanguageFile
     {
-        public LanguageFileDictionary LanguageFileDictionary { get; private set; }
-        public string JsonText { get; private set; }
+        public LanguageFileDictionary LanguageFileDictionary { get; set; }
+        public string JsonText { get; set; }
 
         public LanguageFile(FileInfo file, Encoding encoding = null)
         {
@@ -55,6 +55,36 @@ namespace I18nSharp.Writer
                 throw new InvalidOperationException();
 
             JsonText = JsonConvert.SerializeObject(LanguageFileDictionary);
+        }
+
+        public void SaveFile(FileInfo file, Encoding encoding = null)
+        {
+            if (file == null)
+                throw new ArgumentNullException(nameof(file));
+
+            if (encoding == null)
+                encoding = Encoding.UTF8;
+
+            Save();
+
+            File.WriteAllText(file.FullName, JsonText, encoding);
+        }
+
+        public string SaveToString()
+        {
+            Save();
+
+            return JsonText;
+        }
+
+        public byte[] SaveToBytes(Encoding encoding = null)
+        {
+            if (encoding == null)
+                encoding = Encoding.UTF8;
+
+            Save();
+
+            return encoding.GetBytes(JsonText);
         }
     }
 }
