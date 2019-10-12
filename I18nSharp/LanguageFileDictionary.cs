@@ -11,5 +11,7 @@ namespace I18nSharp
             new Dictionary<string, LanguageFileContent>();
 
         public string CultureString { get; internal set; }
+
+        public LanguageFileContent this[string key] => LanguageFileContents[key];
     }
 }

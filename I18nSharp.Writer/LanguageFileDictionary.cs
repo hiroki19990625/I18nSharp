@@ -11,5 +11,11 @@ namespace I18nSharp.Writer
             new Dictionary<string, LanguageFileContent>();
 
         public string CultureString { get; set; }
+
+        public LanguageFileContent this[string key]
+        {
+            get => LanguageFileContents[key];
+            set => LanguageFileContents[key] = value;
+        }
     }
 }

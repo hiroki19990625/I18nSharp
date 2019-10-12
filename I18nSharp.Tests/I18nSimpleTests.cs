@@ -20,8 +20,7 @@ namespace I18nSharp.Tests
         {
             Writer.LanguageFile languageFile = new Writer.LanguageFile();
             languageFile.LanguageFileDictionary.CultureString = CultureInfo.CurrentCulture.Name;
-            languageFile.LanguageFileDictionary.LanguageFileContents["test_msg"] =
-                new LanguageFileText("Hello World!!");
+            languageFile["test_msg"] = new LanguageFileText("Hello World!!");
             languageFile.SaveFile(new FileInfo("Language-ja.json"));
         }
 
@@ -29,10 +28,8 @@ namespace I18nSharp.Tests
         public void LoadLanguageFile()
         {
             LanguageFile languageFile = new LanguageFile(new FileInfo("Language-ja.json"));
-            Assert.True(
-                (languageFile.LanguageFileDictionary.LanguageFileContents["test_msg"] as Content.LanguageFileText)
-                ?.Content ==
-                "Hello World!!");
+            Assert.True(languageFile.GetCulture() == CultureInfo.CurrentCulture.Name);
+            Assert.True(languageFile.GetContent<Content.LanguageFileText>("test_msg").Content == "Hello World!!");
         }
     }
 }

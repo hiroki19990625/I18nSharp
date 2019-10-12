@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Text;
+using I18nSharp.Content;
 
 namespace I18nSharp
 {
@@ -38,6 +39,18 @@ namespace I18nSharp
             JsonText = encoding.GetString(bytes);
 
             Load();
+        }
+
+        public LanguageFileContent this[string key] => LanguageFileDictionary[key];
+
+        public T GetContent<T>(string key) where T : LanguageFileContent
+        {
+            return (T) this[key];
+        }
+
+        public string GetCulture()
+        {
+            return LanguageFileDictionary.CultureString;
         }
 
         private void Load()

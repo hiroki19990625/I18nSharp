@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Text;
+using I18nSharp.Writer.Content;
 
 namespace I18nSharp.Writer
 {
@@ -88,6 +89,22 @@ namespace I18nSharp.Writer
             Save();
 
             return encoding.GetBytes(JsonText);
+        }
+
+        public LanguageFileContent this[string key]
+        {
+            get => LanguageFileDictionary[key];
+            set => LanguageFileDictionary[key] = value;
+        }
+
+        public T GetContent<T>(string key) where T : LanguageFileContent
+        {
+            return (T) this[key];
+        }
+
+        public string GetCulture()
+        {
+            return LanguageFileDictionary.CultureString;
         }
     }
 }
