@@ -7,8 +7,8 @@ namespace I18nSharp.Writer
     [Serializable]
     public class LanguageFileDictionary
     {
-        public Dictionary<string, ILanguageFileContent<object>> LanguageFileContents { get; set; } =
-            new Dictionary<string, ILanguageFileContent<object>>();
+        public Dictionary<string, LanguageFileContent> LanguageFileContents { get; set; } =
+            new Dictionary<string, LanguageFileContent>();
 
         public string CultureString { get; set; }
     }

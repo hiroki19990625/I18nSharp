@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Globalization;
+using I18nSharp.Content;
 
 namespace I18nSharp
 {
@@ -45,6 +46,6 @@ namespace I18nSharp
             SelectedLanguage = _languageFiles[CultureInfo.CurrentCulture.Name];
         }
 
-        public ILanguageFileContent<object> this[string key] => SelectedLanguage.LanguageFileContents[key];
+        public LanguageFileContent this[string key] => SelectedLanguage.LanguageFileContents[key];
     }
 }

@@ -1,14 +1,17 @@
 using System;
 using System.IO;
 using System.Text;
-using Newtonsoft.Json;
 
 namespace I18nSharp.Writer
 {
     public class LanguageFile
     {
-        public LanguageFileDictionary LanguageFileDictionary { get; set; }
+        public LanguageFileDictionary LanguageFileDictionary { get; set; } = new LanguageFileDictionary();
         public string JsonText { get; set; }
+
+        public LanguageFile()
+        {
+        }
 
         public LanguageFile(FileInfo file, Encoding encoding = null)
         {
@@ -46,7 +49,7 @@ namespace I18nSharp.Writer
             if (JsonText == null)
                 throw new InvalidOperationException();
 
-            LanguageFileDictionary = JsonConvert.DeserializeObject<LanguageFileDictionary>(JsonText);
+            LanguageFileDictionary = JsonManager.Deserialize(JsonText);
         }
 
         public void Save()
@@ -54,7 +57,7 @@ namespace I18nSharp.Writer
             if (LanguageFileDictionary == null)
                 throw new InvalidOperationException();
 
-            JsonText = JsonConvert.SerializeObject(LanguageFileDictionary);
+            JsonText = JsonManager.Serialize(LanguageFileDictionary);
         }
 
         public void SaveFile(FileInfo file, Encoding encoding = null)

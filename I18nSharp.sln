@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I18nSharp", "I18nSharp\I18n
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I18nSharp.Writer", "I18nSharp.Writer\I18nSharp.Writer.csproj", "{CBD91ECD-C800-459C-909E-32CEED490FF8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I18nSharp.Tests", "I18nSharp.Tests\I18nSharp.Tests.csproj", "{CA12FFB6-6DA9-4C10-A666-D4484AFB0F07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{CBD91ECD-C800-459C-909E-32CEED490FF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBD91ECD-C800-459C-909E-32CEED490FF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBD91ECD-C800-459C-909E-32CEED490FF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA12FFB6-6DA9-4C10-A666-D4484AFB0F07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA12FFB6-6DA9-4C10-A666-D4484AFB0F07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA12FFB6-6DA9-4C10-A666-D4484AFB0F07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA12FFB6-6DA9-4C10-A666-D4484AFB0F07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

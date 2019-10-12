@@ -46,6 +46,6 @@ namespace I18nSharp.Writer
             SelectedLanguage = _languageFiles[CultureInfo.CurrentCulture.Name];
         }
 
-        public ILanguageFileContent<object> this[string key] => SelectedLanguage.LanguageFileContents[key];
+        public LanguageFileContent this[string key] => SelectedLanguage.LanguageFileContents[key];
     }
 }

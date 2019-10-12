@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using System.Text;
-using Newtonsoft.Json;
 
 namespace I18nSharp
 {
@@ -46,7 +45,7 @@ namespace I18nSharp
             if (JsonText == null)
                 throw new InvalidOperationException();
 
-            LanguageFileDictionary = JsonConvert.DeserializeObject<LanguageFileDictionary>(JsonText);
+            LanguageFileDictionary = JsonManager.Deserialize(JsonText);
         }
     }
 }
