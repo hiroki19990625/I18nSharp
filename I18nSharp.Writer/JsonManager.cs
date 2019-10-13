@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using I18nSharp.Writer.Content;
 using Newtonsoft.Json;
@@ -21,9 +20,11 @@ namespace I18nSharp.Writer
 
             languageFileDictionary.CultureString = jObject.Value<string>("CultureString");
             languageFileDictionary.LanguageFileContents = new Dictionary<string, LanguageFileContent>();
-            foreach (JToken jToken in jObject.Property("LanguageFileContents"))
+            foreach (JToken jToken in jObject.GetValue("LanguageFileContents"))
             {
-                Console.WriteLine(jToken.ToString());
+                JProperty jProperty = (JProperty) jToken;
+                languageFileDictionary.LanguageFileContents.Add(jProperty.Name,
+                    new LanguageFileText(((JObject) jProperty.Value).Value<string>("Content")));
             }
 
             return languageFileDictionary;
