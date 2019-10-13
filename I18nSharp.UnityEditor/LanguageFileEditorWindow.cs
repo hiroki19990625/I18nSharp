@@ -54,7 +54,7 @@ namespace I18nSharp.UnityEditor
             {
                 "Editor",
                 "New Language File",
-                "Code Generator(TODO)"
+                "Code Generator"
             });
 
             if (_data.selectedToolbar == 0)
@@ -226,6 +226,49 @@ namespace I18nSharp.UnityEditor
                         file.SaveToString());
 
                     AssetDatabase.Refresh();
+                }
+            }
+            else if (_data.selectedToolbar == 2)
+            {
+                _data.codeGeneratePath = EditorGUILayout.TextField("Code Generate Path", _data.codeGeneratePath);
+                _data.resourcePath = EditorGUILayout.TextField("Resource Path", _data.resourcePath);
+                if (GUILayout.Button("Select All"))
+                {
+                    _data.generateCodeLanguages.Clear();
+
+                    TextAsset[] textAssets = Resources.LoadAll<TextAsset>(_data.resourcePath);
+                    foreach (TextAsset textAsset in textAssets)
+                    {
+                        _data.generateCodeLanguages.Add(textAsset);
+                    }
+                }
+
+                if (_data.generateCodeLanguages != null)
+                {
+                    EditorGUILayout.BeginVertical(GUI.skin.box);
+                    foreach (TextAsset textAsset in _data.generateCodeLanguages)
+                    {
+                        EditorGUILayout.LabelField(textAsset.name);
+                    }
+
+                    EditorGUILayout.EndVertical();
+
+                    if (GUILayout.Button("Generate Code"))
+                    {
+                        List<LanguageFile> languageFiles = new List<LanguageFile>();
+                        foreach (TextAsset textAsset in _data.generateCodeLanguages)
+                        {
+                            languageFiles.Add(new LanguageFile(textAsset.text));
+                        }
+
+                        Directory.CreateDirectory(Path.GetDirectoryName(_data.codeGeneratePath) ??
+                                                  throw new InvalidOperationException());
+
+                        string code = CodeGenerator.Generate(languageFiles.ToArray());
+                        File.WriteAllText(_data.codeGeneratePath, code);
+
+                        AssetDatabase.Refresh();
+                    }
                 }
             }
         }
