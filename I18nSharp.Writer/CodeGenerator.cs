@@ -12,7 +12,7 @@ namespace I18nSharp.Writer
         private static Regex _invalidKeyReplaceRegex =
             new Regex(@"[-!#$%&()=~^|+{};*:<>?,./{}\[\]\`\\ ]", RegexOptions.Compiled);
 
-        public static string Generate(LanguageFile[] languageFiles)
+        public static string Generate(LanguageFile[] languageFiles, string defaultLanguage)
         {
             string[] keys = new string[0];
             string[] cultures = new string[0];
@@ -29,12 +29,26 @@ namespace I18nSharp.Writer
             codeNamespace.Imports.Add(new CodeNamespaceImport("System.Collections.Generic"));
 
             CodeTypeDeclaration type = new CodeTypeDeclaration("I18n_Generated");
+            foreach (string culture in cultures)
+            {
+                CodeMemberField field = new CodeMemberField
+                {
+                    Name = InvalidKeyReplace(culture),
+                    Type = new CodeTypeReference(typeof(string)),
+                    Attributes = MemberAttributes.Public | MemberAttributes.Const,
+                    InitExpression = new CodePrimitiveExpression(culture)
+                };
+                type.Members.Add(field);
+            }
+
             CodeMemberField langProp = new CodeMemberField
             {
                 Name = "SelectLanguage", Attributes = MemberAttributes.Static | MemberAttributes.Public,
-                Type = new CodeTypeReference(typeof(string))
+                Type = new CodeTypeReference(typeof(string)),
+                InitExpression = new CodePrimitiveExpression(defaultLanguage)
             };
             type.Members.Add(langProp);
+
             foreach (string key in keys)
             {
                 CodeMemberProperty memberProperty = new CodeMemberProperty

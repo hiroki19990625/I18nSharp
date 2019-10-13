@@ -248,12 +248,30 @@ namespace I18nSharp.UnityEditor
                     EditorGUILayout.BeginVertical(GUI.skin.box);
                     foreach (TextAsset textAsset in _data.generateCodeLanguages)
                     {
+                        EditorGUILayout.BeginHorizontal(GUI.skin.box);
                         EditorGUILayout.LabelField(textAsset.name);
+                        if (GUILayout.Button("DefaultCulture"))
+                        {
+                            _data.defaultCulture = textAsset.name;
+                        }
+
+                        EditorGUILayout.EndHorizontal();
                     }
 
                     EditorGUILayout.EndVertical();
 
-                    if (GUILayout.Button("Generate Code"))
+                    if (_data.defaultCulture == null)
+                    {
+                        EditorGUILayout.HelpBox("Select Default Culture", MessageType.Info);
+                    }
+                    else
+                    {
+                        int count = _data.generateCodeLanguages.Count(l => l.name == _data.defaultCulture);
+                        if (count == 0)
+                            _data.defaultCulture = null;
+                    }
+
+                    if (_data.defaultCulture != null && GUILayout.Button("Generate Code"))
                     {
                         List<LanguageFile> languageFiles = new List<LanguageFile>();
                         foreach (TextAsset textAsset in _data.generateCodeLanguages)
@@ -264,7 +282,7 @@ namespace I18nSharp.UnityEditor
                         Directory.CreateDirectory(Path.GetDirectoryName(_data.codeGeneratePath) ??
                                                   throw new InvalidOperationException());
 
-                        string code = CodeGenerator.Generate(languageFiles.ToArray());
+                        string code = CodeGenerator.Generate(languageFiles.ToArray(), _data.defaultCulture);
                         File.WriteAllText(_data.codeGeneratePath, code);
 
                         AssetDatabase.Refresh();

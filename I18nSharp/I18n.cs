@@ -12,7 +12,7 @@ namespace I18nSharp
 
         public static void AddLanguage(LanguageFile file)
         {
-            _languageFiles[file.LanguageFileDictionary.CultureString] = new LanguageFileDictionary();
+            _languageFiles[file.LanguageFileDictionary.CultureString] = file.LanguageFileDictionary;
         }
 
         public static LanguageFileDictionary GetLanguage(string cultureString)

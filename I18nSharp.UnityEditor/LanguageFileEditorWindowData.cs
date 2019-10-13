@@ -10,6 +10,7 @@ namespace I18nSharp.UnityEditor
         public TextAsset selectedLanguage;
         public string codeGeneratePath = "Assets/Plugins/I18nSharp/Scripts/I18n-GenerateCode.cs";
         public string resourcePath = "Languages";
+        public string defaultCulture;
         public List<TextAsset> generateCodeLanguages;
     }
 }
