@@ -5,6 +5,7 @@ A simple i18n resource manager!
 - Language file in Json format
 - Automatic code generation
 - Extended support in UnityEditor
+- Winform support
 
 ## TODO
-- Winform support
+- Extended support for 'LanguageFileContent'
