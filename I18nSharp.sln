@@ -1,12 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I18nSharp", "I18nSharp\I18nSharp.csproj", "{BC7E73D6-DC64-49D7-BA17-8252AB43ECFA}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "I18nSharp", "I18nSharp\I18nSharp.csproj", "{BC7E73D6-DC64-49D7-BA17-8252AB43ECFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I18nSharp.Writer", "I18nSharp.Writer\I18nSharp.Writer.csproj", "{CBD91ECD-C800-459C-909E-32CEED490FF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "I18nSharp.Writer", "I18nSharp.Writer\I18nSharp.Writer.csproj", "{CBD91ECD-C800-459C-909E-32CEED490FF8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I18nSharp.Tests", "I18nSharp.Tests\I18nSharp.Tests.csproj", "{CA12FFB6-6DA9-4C10-A666-D4484AFB0F07}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I18nSharp.UnityEditor", "I18nSharp.UnityEditor\I18nSharp.UnityEditor.csproj", "{28E84E2C-3199-428F-9B9C-6A623775FD28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I18nSharp.WinformEditor", "I18nSharp.WinformEditor\I18nSharp.WinformEditor.csproj", "{D3DD9D14-1E39-47AD-B1D8-C839AB2C8DE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +35,15 @@ Global
 		{28E84E2C-3199-428F-9B9C-6A623775FD28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28E84E2C-3199-428F-9B9C-6A623775FD28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28E84E2C-3199-428F-9B9C-6A623775FD28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3DD9D14-1E39-47AD-B1D8-C839AB2C8DE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3DD9D14-1E39-47AD-B1D8-C839AB2C8DE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3DD9D14-1E39-47AD-B1D8-C839AB2C8DE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3DD9D14-1E39-47AD-B1D8-C839AB2C8DE2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {37EA045D-DF4A-4462-8212-3F7CA7337D49}
 	EndGlobalSection
 EndGlobal
