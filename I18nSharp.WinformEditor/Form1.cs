@@ -202,5 +202,16 @@ namespace I18nSharp.WinformEditor
                 }
             }
         }
+
+        private void GenerateGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3 form3 = new Form3(_languageFiles.Keys.ToArray(), _languageFiles.Values.ToArray());
+            form3.ShowDialog();
+        }
+
+        private void CodeCToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+        {
+            codeCToolStripMenuItem.Enabled = _languageFiles.Count > 0;
+        }
     }
 }

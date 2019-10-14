@@ -37,6 +37,8 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.codeCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generateGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -117,13 +119,30 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileFToolStripMenuItem});
+            this.fileFToolStripMenuItem,
+            this.codeCToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.menuStrip1.Size = new System.Drawing.Size(800, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // codeCToolStripMenuItem
+            // 
+            this.codeCToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.generateGToolStripMenuItem});
+            this.codeCToolStripMenuItem.Name = "codeCToolStripMenuItem";
+            this.codeCToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
+            this.codeCToolStripMenuItem.Text = "Code(&C)";
+            this.codeCToolStripMenuItem.DropDownOpening += new System.EventHandler(this.CodeCToolStripMenuItem_DropDownOpening);
+            // 
+            // generateGToolStripMenuItem
+            // 
+            this.generateGToolStripMenuItem.Name = "generateGToolStripMenuItem";
+            this.generateGToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.generateGToolStripMenuItem.Text = "Generate(&G)";
+            this.generateGToolStripMenuItem.Click += new System.EventHandler(this.GenerateGToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -155,6 +174,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exitEToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem codeCToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generateGToolStripMenuItem;
     }
 }
 
