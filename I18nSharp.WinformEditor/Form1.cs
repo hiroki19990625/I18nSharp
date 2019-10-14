@@ -148,7 +148,7 @@ namespace I18nSharp.WinformEditor
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                if (row.Cells[0].Value != null && row.Cells[1].Value != null)
+                if (row.Cells[0].Value != null)
                 {
                     _selectedLanguageFile.LanguageFileDictionary.LanguageFileContents.Add((string) row.Cells[0].Value,
                         new LanguageFileText((string) row.Cells[1].Value));
@@ -158,11 +158,6 @@ namespace I18nSharp.WinformEditor
 
         private void DataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            if (e.RowIndex == dataGridView1.NewRowIndex || !dataGridView1.IsCurrentCellDirty)
-            {
-                return;
-            }
-
             if (dataGridView1.Columns[e.ColumnIndex].Name == "key" &&
                 _selectedLanguageFile.LanguageFileDictionary.LanguageFileContents.ContainsKey(
                     e.FormattedValue.ToString()))
@@ -195,7 +190,7 @@ namespace I18nSharp.WinformEditor
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                if (row.Cells[0].Value != null && row.Cells[1].Value != null)
+                if (row.Cells[0].Value != null)
                 {
                     _selectedLanguageFile.LanguageFileDictionary.LanguageFileContents.Add((string) row.Cells[0].Value,
                         new LanguageFileText((string) row.Cells[1].Value));
