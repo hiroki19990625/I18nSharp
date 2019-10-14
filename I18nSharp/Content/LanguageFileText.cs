@@ -7,6 +7,10 @@ namespace I18nSharp.Content
     {
         public string Content { get; }
 
+        internal LanguageFileText()
+        {
+        }
+
         internal LanguageFileText(string content)
         {
             Content = content;

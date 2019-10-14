@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
-using I18nSharp.Writer.Content;
+using I18nSharp.Content;
 using NUnit.Framework;
+using LanguageFileText = I18nSharp.Writer.Content.LanguageFileText;
 
 namespace I18nSharp.Tests
 {
@@ -30,6 +31,14 @@ namespace I18nSharp.Tests
             LanguageFile languageFile = new LanguageFile(new FileInfo("Language-ja.json"));
             Assert.True(languageFile.GetCulture() == CultureInfo.CurrentCulture.Name);
             Assert.True(languageFile.GetContent<Content.LanguageFileText>("test_msg").Content == "Hello World!!");
+        }
+
+        [Test, Order(2)]
+        public void FactoryTest()
+        {
+            Assert.True(LanguageFileContentFactory.GetLanguageFileContent<Content.LanguageFileText>()
+                            .GetType() ==
+                        typeof(Content.LanguageFileText));
         }
     }
 }
