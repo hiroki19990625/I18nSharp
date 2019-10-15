@@ -14,7 +14,9 @@ A simple i18n resource manager!
 
 ## Use Library
 
-### I18nSharp, I18nSharp.Writer, I18nSharp.UnityEditor
+### I18nSharp
+### I18nSharp.Writer
+### I18nSharp.UnityEditor
 - [Newtonsoft.Json](https://www.newtonsoft.com/json)
 - [System.CodeDom](https://dotnet.microsoft.com/)
 
