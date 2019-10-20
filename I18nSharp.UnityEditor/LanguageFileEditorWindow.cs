@@ -32,6 +32,12 @@ namespace I18nSharp.UnityEditor
                 EditorPrefs.SetString(nameof(LanguageFileEditorPathWindow),
                     "Assets/Plugins/I18nSharp/LanguageFileEditorWindow.asset");
 
+            LanguageFileEditorWindow window = CreateInstance<LanguageFileEditorWindow>();
+            window.Show();
+        }
+
+        private void OnEnable()
+        {
             string path = EditorPrefs.GetString(nameof(LanguageFileEditorPathWindow));
             if (!File.Exists(path))
             {
@@ -41,11 +47,7 @@ namespace I18nSharp.UnityEditor
                 AssetDatabase.CreateAsset(d, path);
             }
 
-            LanguageFileEditorWindowData data = AssetDatabase.LoadAssetAtPath<LanguageFileEditorWindowData>(path);
-
-            LanguageFileEditorWindow window = CreateInstance<LanguageFileEditorWindow>();
-            window._data = data;
-            window.Show();
+            _data = AssetDatabase.LoadAssetAtPath<LanguageFileEditorWindowData>(path);
         }
 
         public void OnGUI()
