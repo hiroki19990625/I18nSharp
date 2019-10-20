@@ -2,6 +2,17 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>I18nSharp</Title>
+        <Description>A simple i18n resource manager!</Description>
+        <Copyright>hiroki</Copyright>
+        <PackageProjectUrl>https://github.com/hiroki19990625/I18nSharp</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/hiroki19990625/I18nSharp/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/hiroki19990625/I18nSharp.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>i18n globalization</PackageTags>
+        <PackageVersion>1.0.0-pre3</PackageVersion>
+        <Authors>hiroki</Authors>
     </PropertyGroup>
 
     <ItemGroup>
