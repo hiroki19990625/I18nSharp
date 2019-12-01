@@ -41,20 +41,25 @@ namespace I18nSharp.WinformEditor
 
         private void LoadLanguages()
         {
-            _languageFiles.Clear();
-            _files.Clear();
-
-            _directoryInfo = new DirectoryInfo(_folder);
-
-            BinaryStream stream = new BinaryStream();
-            stream.WriteStringUtf8(_folder);
-            File.WriteAllBytes("Data_00.bin", stream.GetBuffer());
-
-            foreach (FileInfo fileInfo in _directoryInfo.GetFiles())
+            if (!string.IsNullOrWhiteSpace(_folder))
             {
-                LanguageFile languageFile = new LanguageFile(fileInfo);
-                _languageFiles.Add(languageFile.GetCulture(), languageFile);
-                _files.Add(languageFile.GetCulture(), fileInfo);
+                _languageFiles.Clear();
+                _files.Clear();
+
+                _directoryInfo = new DirectoryInfo(_folder);
+                if (_directoryInfo.Exists)
+                {
+                    BinaryStream stream = new BinaryStream();
+                    stream.WriteStringUtf8(_folder);
+                    File.WriteAllBytes("Data_00.bin", stream.GetBuffer());
+
+                    foreach (FileInfo fileInfo in _directoryInfo.GetFiles("*.json"))
+                    {
+                        LanguageFile languageFile = new LanguageFile(fileInfo);
+                        _languageFiles.Add(languageFile.GetCulture(), languageFile);
+                        _files.Add(languageFile.GetCulture(), fileInfo);
+                    }
+                }
             }
         }
 
